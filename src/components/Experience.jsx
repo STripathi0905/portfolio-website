@@ -28,30 +28,6 @@ const Experience = () => {
   ];
 
   return (
-    <section>
-      <h2>Experience</h2>
-      {experiences.map((exp, index) => (
-        <div key={index} className="mb-6">
-          <h3 className="text-xl font-bold">{exp.title}</h3>
-          <p className="italic">{exp.type} | {exp.duration}</p>
-          <ul className="list-disc ml-6 mt-2">
-            {exp.description.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-          <p className="mt-2">
-            <strong>Technologies:</strong> {exp.technologies.join(', ')}
-          </p>
-        </div>
-      ))}
-    </section>
-  );
-};
-
-export default Experience;
-
-
-  return (
     <section id="experience" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
@@ -108,6 +84,7 @@ export default Experience;
             ))}
           </div>
 
+          {/* Certifications */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -119,11 +96,9 @@ export default Experience;
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-quaternary p-6 rounded-lg">
                 <h4 className="text-xl font-semibold text-secondary">TATA Cybersecurity Security Analyst</h4>
-                {/* <p className="text-gray-400 mt-2">Job Simulation on Forage - January 2024</p> */}
               </div>
               <div className="bg-quaternary p-6 rounded-lg">
                 <h4 className="text-xl font-semibold text-secondary">ISRO Geodata Processing</h4>
-                {/* <p className="text-gray-400 mt-2">Using Python - 2024</p> */}
               </div>
             </div>
           </motion.div>
