@@ -4,20 +4,52 @@ import { BsBriefcase } from 'react-icons/bs';
 const Experience = () => {
   const experiences = [
     {
-      title: 'Full Stack Web Developer',
-      type: 'Freelance Projects',
-      // duration: 'Sep 2024 - Present',
+      title: 'Full Stack Developer',
+      type: 'JSPR Software Solution',
+      duration: 'Sep 2024 – Present',
       description: [
-        'Collaborated with a team of 3 friends to develop freelance full-stack web applications for clients using the MERN stack',
-        'Took the lead on frontend development, creating responsive and modular UI components in React.js using Hooks and Context API',
-        'Worked closely with the backend team to integrate RESTful APIs, ensuring seamless frontend-backend communication',
-        'Participated in project planning and Git-based version control, ensuring code quality and team collaboration',
-        'Tested frontend functionality using Postman (for API testing) and basic unit tests with Jest'
+        'Developed and maintained SaaS-based web application features using the MERN stack (MongoDB, Express.js, React.js, Node.js)',
+        'Built responsive and modular UI components in React.js with Tailwind CSS, managing state with Hooks and Context API',
+        'Designed and integrated secure RESTful APIs for authentication, user dashboard, and product modules',
+        'Collaborated in Agile environment by participating in sprint planning, daily stand-ups, and peer code reviews',
+        'Utilized Git/GitHub for version control and Postman for API testing to ensure smooth frontend-backend integration'
       ],
-      technologies: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'REST APIs', 'Git', 'Jest', 'Postman']
+      technologies: [
+        'React.js',
+        'Node.js',
+        'Express.js',
+        'MongoDB',
+        'Tailwind CSS',
+        'REST APIs',
+        'Git/GitHub',
+        'Postman'
+      ]
     }
-
   ];
+
+  return (
+    <section>
+      <h2>Experience</h2>
+      {experiences.map((exp, index) => (
+        <div key={index} className="mb-6">
+          <h3 className="text-xl font-bold">{exp.title}</h3>
+          <p className="italic">{exp.type} | {exp.duration}</p>
+          <ul className="list-disc ml-6 mt-2">
+            {exp.description.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+          <p className="mt-2">
+            <strong>Technologies:</strong> {exp.technologies.join(', ')}
+          </p>
+        </div>
+      ))}
+    </section>
+  );
+};
+
+export default Experience;
+
 
   return (
     <section id="experience" className="py-20">
