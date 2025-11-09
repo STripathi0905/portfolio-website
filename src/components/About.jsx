@@ -1,5 +1,18 @@
 import { motion } from "framer-motion";
 
+const tech = [
+  "Next.js",
+  "TypeScript",
+  "React",
+  "Node.js",
+  "MongoDB",
+  "Mongoose",
+  "Tailwind CSS",
+  "NextAuth / JWT",
+  "REST APIs",
+  "Vercel",
+];
+
 const About = () => {
   return (
     <section id="about" className="py-20 bg-tertiary/30">
@@ -13,61 +26,56 @@ const About = () => {
           <h2 className="section-title">About Me</h2>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <p className="text-lg">
-                Hello! I'm Shashank, a passionate Full Stack Web Developer with
-                a strong foundation in computer science. I hold a Master's
-                degree in Computer Applications (MCA), combining technical
-                expertise with insights from psychology to build better user
-                experiences.
+            {/* Left: About + Tech */}
+            <div className="space-y-6">
+              <p className="text-lg leading-relaxed">
+                Hi, I’m <strong>Shashank</strong> — a Full-Stack Web Developer focused on building production-grade SaaS applications with{" "}
+                <strong>Next.js</strong> and <strong>TypeScript</strong>. I design and ship end-to-end features: server-side & client pages, secure auth flows,
+                REST/edge API routes, and polished, accessible UI components.
               </p>
 
-              <p className="text-lg">
-                My journey in web development is driven by a commitment to
-                creating meaningful, real-world digital solutions. I specialize
-                in building full-stack applications using the MERN stack and
-                adhere to modern development practices to deliver scalable and
-                maintainable code.
+              <p className="text-lg leading-relaxed">
+                My background (MCA) and experience in freelance & production projects help me balance solid engineering with a strong sense of user experience.
+                I prioritize performance, accessibility, and maintainable code — from reusable Tailwind components to robust backend services and CI/CD deployments.
               </p>
 
-              <p className="text-lg">
-                With practical experience in freelance development and a solid
-                academic background, I enjoy working on projects that challenge
-                me to grow. I'm especially passionate about designing responsive
-                user interfaces, ensuring accessibility, and integrating secure
-                payment solutions.
+              <p className="text-lg leading-relaxed">
+                I enjoy solving real product problems: dashboards, role-based auth (NextAuth/JWT), data modeling with MongoDB/Mongoose, and deploying fast, reliable apps to Vercel.
               </p>
+
+              <div>
+                <h4 className="text-md font-semibold text-white mb-3">Tech stack</h4>
+                <div className="flex flex-wrap gap-2">
+                  {tech.map((t, i) => (
+                    <span
+                      key={i}
+                      className="inline-block px-3 py-1 text-sm rounded-full border border-gray-700 bg-quaternary/60 text-gray-100"
+                      aria-label={`tech-${t}`}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
+            {/* Right: Education + CTA */}
             <div className="bg-quaternary p-6 rounded-lg space-y-4">
               <h3 className="text-2xl font-bold text-white">Education</h3>
 
               <div className="space-y-4">
                 <div>
-                  <h4 className="text-xl font-semibold text-secondary">
-                    Master of Computer Applications (MCA)
-                  </h4>
-                  <p className="text-gray-400">
-                    Dr. Harisingh Gour Vishwavidyalaya (A Central University)
-                  </p>
-                  <p className="text-gray-400">
-                    Major in Computer Science; Minors in Psychology
-                  </p>
-                  <p className="text-gray-400">CGPA: 8.74/10</p>
-                  <p className="text-sm text-gray-500">2022 - 2024</p>
+                  <h4 className="text-xl font-semibold text-secondary">Master of Computer Applications (MCA)</h4>
+                  <p className="text-gray-400">Dr. Harisingh Gour Vishwavidyalaya (Central University)</p>
+                  <p className="text-gray-400">Major: Computer Science · Minor: Psychology</p>
+                  <p className="text-gray-400">CGPA: 8.74 / 10</p>
+                  <p className="text-sm text-gray-500">2022 — 2024</p>
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-semibold text-secondary">
-                    Bachelor of Computer Applications (BCA)
-                  </h4>
-                  <p className="text-gray-400">
-                    Awadhesh Pratap Singh University
-                  </p>
-                  <p className="text-gray-400">
-                    Major in Computer Science; Minors in Mathematics
-                  </p>
-                  {/* <p className="text-sm text-gray-500">2018 - 2021</p> */}
+                  <h4 className="text-xl font-semibold text-secondary">Bachelor of Computer Applications (BCA)</h4>
+                  <p className="text-gray-400">Awadhesh Pratap Singh University</p>
+                  <p className="text-gray-400">Major: Computer Science · Minor: Mathematics</p>
                 </div>
               </div>
             </div>

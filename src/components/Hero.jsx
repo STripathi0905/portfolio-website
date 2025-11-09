@@ -1,81 +1,160 @@
-import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { HiMail } from 'react-icons/hi';
-import profileImage from '../assets/profile.jpg'; // ⬅️ Add your image in src/assets
+// src/components/Hero.jsx
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiMail, HiArrowDown } from "react-icons/hi";
+import profilePic from "../assets/profile.jpg"; // <-- put your image here
 
-const Hero = () => {
-  return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 py-16 pt-24">
- <motion.div
-  initial={{ opacity: 0, scale: 0.9 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.5 }}
-  className="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-secondary shadow-lg overflow-hidden flex items-center justify-center bg-white"
->
-  <img
-    src={profileImage}
-    alt="Shashank Tripathi"
-    className="object-contain w-full h-full"
-    loading="lazy"
-  />
-</motion.div>
-
-      <div className="container px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl text-center md:text-left"
-        >
-          <h2 className="text-secondary text-lg mb-4">Hi, my name is</h2>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-            Shashank Tripathi.
-          </h1>
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-400 mb-8">
-            Full Stack Web Developer
-          </h2>
-          <p className="text-lg text-gray-400 mb-12 max-w-2xl">
-            I'm a Full-Stack Developer with a strong passion for creating modern, efficient, and user-focused web applications. I specialize in building responsive interfaces and robust backend systems that drive seamless digital experiences.
-          </p>
-
-          <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
-            <motion.a
-              href="mailto:stripathi0905@gmail.com"
-              className="btn-primary flex items-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <HiMail className="text-xl" />
-              <span>Contact Me</span>
-            </motion.a>
-
-            <div className="flex items-center space-x-4">
-              <motion.a
-                href="https://github.com/STripathi0905"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl hover:text-secondary transition-colors duration-300"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FaGithub />
-              </motion.a>
-              <motion.a
-                href="https://www.linkedin.com/in/shashank-tripathi09/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl hover:text-secondary transition-colors duration-300"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FaLinkedin />
-              </motion.a>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
+const container = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.08, delayChildren: 0.12 },
+  },
 };
 
-export default Hero;
+const item = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 110, damping: 14 },
+  },
+};
+
+export default function Hero() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  return (
+    <section
+      id="hero"
+      className="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-b from-[#061022] to-[#03050b]"
+    >
+      {/* Decorative background blobs (subtle) */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <div className="absolute left-8 top-20 w-64 h-64 bg-cyan-500/6 rounded-full blur-3xl animate-float" />
+        <div
+          className="absolute right-8 bottom-16 w-96 h-96 bg-violet-500/6 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "1.2s" }}
+        />
+      </div>
+
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-6 py-16"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          {/* LEFT: Text */}
+          <motion.div variants={item} className="space-y-6">
+            <div className="text-teal-300 font-mono text-sm">
+              Hi, my name is
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight">
+              Shashank Tripathi
+            </h1>
+
+            <h2 className="text-2xl sm:text-3xl text-cyan-300 font-semibold">
+              Full Stack Web Developer — MERN &amp; NEXT.JS
+            </h2>
+
+            <p className="text-gray-300 max-w-xl leading-relaxed">
+              I build fast, accessible, and maintainable web applications.
+              Frontend with React &amp; Tailwind, production APIs with
+              Node/Express.js, containerized deployments and cloud-ready
+              infrastructure.
+            </p>
+
+            <div className="flex flex-wrap gap-3 pt-4">
+              <a
+                href="mailto:stripathi0905@gmail.com"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 text-black font-medium shadow hover:scale-105 transition-transform"
+                aria-label="Email Shashank"
+              >
+                <HiMail className="w-5 h-5" />
+                <span>Get in touch</span>
+              </a>
+
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-gray-700 text-gray-200 hover:bg-gray-800 transition-colors"
+              >
+                Download Resume
+              </a>
+            </div>
+
+            <div className="flex items-center gap-4 pt-6">
+              <a
+                href="https://github.com/STripathi0905"
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-300 hover:text-white text-2xl"
+                aria-label="GitHub"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/shashank-tripathi09/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-300 hover:text-white text-2xl"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* RIGHT: Profile image + decorative rings */}
+          <motion.div
+            variants={item}
+            className="flex justify-center lg:justify-end"
+          >
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              {/* decorative rings */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute w-full h-full rounded-full border border-white/6 transform scale-105" />
+                <div className="absolute w-5/6 h-5/6 rounded-full border border-cyan-400/12 transform rotate-6" />
+                <div className="absolute w-4/6 h-4/6 rounded-full border border-violet-400/10 transform rotate-12" />
+              </div>
+
+              {/* image */}
+              <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-2 border-white/6">
+                <img
+                  src={profilePic}
+                  alt="Shashank Tripathi — profile"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "50% 10%" }} // 50% = center horizontally, 30% = little up
+                  loading="lazy"
+                  draggable={false}
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* scroll indicator */}
+        <motion.button
+          onClick={() => {
+            const el = document.getElementById("about");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-300 flex flex-col items-center gap-2"
+          aria-label="Scroll to about"
+        >
+          <span className="text-xs font-mono">Scroll to explore</span>
+          <HiArrowDown className="w-6 h-6" />
+        </motion.button>
+      </motion.div>
+    </section>
+  );
+}

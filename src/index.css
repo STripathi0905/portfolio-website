@@ -1,35 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --primary: #0f0f23;
+    --secondary: #64ffda;
+    --tertiary: #112240;
+    --quaternary: #233554;
+    --accent: #8892b0;
+    --text-primary: #e6f1ff;
+    --text-secondary: #a8b2d1;
+  }
+
+  [data-theme='light'] {
+    --primary: #f8fafc;
+    --secondary: #3b82f6;
+    --tertiary: #e2e8f0;
+    --quaternary: #cbd5e1;
+    --accent: #64748b;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+  }
+
   body {
-    @apply bg-primary text-gray-300;
+    @apply font-sans leading-relaxed bg-primary text-text-primary;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  [data-theme='light'] body {
+    background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
   }
 
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth scroll-pt-20;
+  }
+  
+  ::selection {
+    @apply text-secondary;
+    background-color: rgba(100, 255, 218, 0.2);
+  }
+  
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-primary;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full transition-colors;
+    background-color: var(--quaternary);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(100, 255, 218, 0.5);
   }
 }
 
 @layer components {
   .section-title {
-    @apply text-4xl font-bold text-white mb-8;
+    @apply text-4xl md:text-5xl font-bold text-text-primary mb-12 relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute -bottom-2 left-0 w-20 h-1 bg-secondary rounded-full;
+  }
+  
+  .section-title::before {
+    content: '';
+    counter-increment: section;
+    @apply absolute -left-12 top-0 text-secondary font-mono text-xl;
+    content: '0' counter(section) '.';
   }
   
   .nav-link {
-    @apply hover:text-secondary transition-colors duration-300;
+    @apply text-text-secondary hover:text-secondary transition-all duration-300 relative font-medium;
   }
-
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
   .btn-primary {
-    @apply px-6 py-3 border-2 border-secondary text-secondary rounded hover:bg-secondary hover:text-primary transition-all duration-300;
+    @apply px-6 py-3 border-2 border-secondary text-secondary rounded font-medium transition-all duration-300 relative overflow-hidden;
   }
-
+  
+  .btn-primary:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+  }
+  
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 transition-all duration-300;
+  }
+  
+  .btn-primary:hover::before {
+    background-color: rgba(100, 255, 218, 0.1);
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-secondary text-primary rounded font-medium hover:bg-secondary/80 transition-all duration-300;
+  }
+  
   .project-card {
-    @apply bg-tertiary p-6 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300;
+    @apply backdrop-blur-sm p-6 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300 border hover:shadow-card;
+    background-color: rgba(17, 34, 64, 0.5);
+    border-color: rgba(35, 53, 84, 0.3);
   }
-
+  
+  .project-card:hover {
+    border-color: rgba(100, 255, 218, 0.5);
+  }
+  
   .skill-badge {
-    @apply bg-quaternary px-4 py-2 rounded-full text-sm;
+    @apply px-4 py-2 rounded-full text-sm text-accent hover:text-secondary transition-all duration-300 cursor-default;
+    background-color: rgba(35, 53, 84, 0.5);
+  }
+  
+  .skill-badge:hover {
+    background-color: rgba(100, 255, 218, 0.2);
+  }
+  
+  .form-input {
+    @apply bg-tertiary/50 border border-quaternary/50 rounded px-4 py-3 text-text-primary placeholder-text-secondary focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all duration-300;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-secondary to-blue-400 bg-clip-text text-transparent;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-md border;
+    background-color: rgba(17, 34, 64, 0.3);
+    border-color: rgba(35, 53, 84, 0.3);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .counter-reset {
+    counter-reset: section;
   }
 }
