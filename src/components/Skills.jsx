@@ -21,10 +21,8 @@ import {
   SiRedux,
   SiSocketdotio,
   SiJest,
-  SiFigma,
   SiGithub,
   SiTypescript,
-  SiNestjs,
   SiRedis,
   SiGraphql
 } from 'react-icons/si';
