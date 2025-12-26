@@ -10,12 +10,10 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import LoadingScreen from './components/LoadingScreen';
-import ThemeToggle from './components/ThemeToggle';
 import ParticleBackground from './components/ParticleBackground';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     // Simulate loading time
@@ -26,9 +24,6 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
 
   return (
     <>
@@ -88,7 +83,6 @@ function App() {
         >
           <ParticleBackground />
           <Navbar />
-          <ThemeToggle theme={theme} setTheme={setTheme} />
           <main className="relative z-10">
             <Hero />
             <About />
