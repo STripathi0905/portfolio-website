@@ -60,7 +60,7 @@ export default function Hero() {
             </h1>
 
             <h2 className="text-2xl sm:text-3xl text-cyan-300 font-semibold">
-              Full Stack Web Developer — MERN &amp; NEXT.JS
+              Full Stack Web Developer
             </h2>
 
             <p className="text-gray-300 max-w-xl leading-relaxed">

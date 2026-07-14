@@ -3,57 +3,81 @@ import { BsBriefcase } from "react-icons/bs";
 
 const Experience = () => {
   const experiences = [
-    {
-      title: "Full Stack Developer",
-      type: "AJX Technologies",
-      duration: "Sep 2025 – Present",
-      project: [
-        "Working on a full-stack Next.js application using TypeScript for a SaaS product, delivering both server-side rendered (SSR) and client-side pages to optimize UX and SEO.",
-        "Built responsive, reusable UI components in React + TypeScript with Tailwind CSS; managed local and global state using Hooks and Context API.",
-        "Implemented backend functionality using Next.js API routes (TypeScript) and integrated with MongoDB (Mongoose) for data modeling and persistence.",
-        "Designed and secured authentication and authorization flows (NextAuth / JWT pattern) and implemented role-based access control for dashboard and product modules.",
-        "Created and consumed RESTful API endpoints, added input validation and robust error handling to ensure reliable frontend-backend integration.",
-        "Collaborated in an Agile team — sprint planning, daily standups, PR/code reviews — and used Git/GitHub for source control and CI/CD-backed deployments.",
-        "Used Postman for API testing and debugging, and deployed the application to Vercel while focusing on performance optimizations and bundle size reduction.",
-      ],
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "React.js",
-        "Node.js",
-        "MongoDB",
-        "Mongoose",
-        "Tailwind CSS",
-        "NextAuth / JWT",
-        "REST APIs",
-        "Git / GitHub",
-        "Postman",
-        "Vercel",
-      ],
-    },
-    {
-      title: "Full Stack Developer",
-      type: "JSPR Software Solution",
-      duration: "Sep 2025 – Sep 2025",
-      description: [
-        "Developed and maintained SaaS-based web application features using the MERN stack (MongoDB, Express.js, React.js, Node.js)",
-        "Built responsive and modular UI components in React.js with Tailwind CSS, managing state with Hooks and Context API",
-        "Designed and integrated secure RESTful APIs for authentication, user dashboard, and product modules",
-        "Collaborated in Agile environment by participating in sprint planning, daily stand-ups, and peer code reviews",
-        "Utilized Git/GitHub for version control and Postman for API testing to ensure smooth frontend-backend integration",
-      ],
-      technologies: [
-        "React.js",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Tailwind CSS",
-        "REST APIs",
-        "Git/GitHub",
-        "Postman",
-      ],
-    },
-  ];
+  {
+    title: "Full Stack Developer",
+    type: "Lazulite Technology Services",
+    duration: "Apr 2026 – Present",
+    description: [
+      "Developing enterprise SaaS CRM and IAM platform features using Next.js, React, TypeScript, and modern frontend architecture.",
+      "Building authentication, authorization, role-based access control (RBAC), user management, and dashboard modules for enterprise applications.",
+      "Collaborating closely with backend teams to integrate secure REST APIs, optimize data flow, and implement business workflows.",
+      "Developing reusable UI components, shared modules, and scalable application architecture to improve maintainability across the platform.",
+      "Working with Git, Jira, code reviews, Agile sprint planning, and production deployments while resolving bugs and delivering new features.",
+      "Contributing across the full development lifecycle, from feature implementation and API integration to testing, optimization, and production support."
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "REST APIs",
+      "RBAC",
+      "Authentication",
+      "Tailwind CSS",
+      "Git",
+      "Jira"
+    ]
+  },
+
+  {
+    title: "Full Stack Developer",
+    type: "AJX Technologies",
+    duration: "Oct 2025 – Apr 2026",
+    description: [
+      "Built SaaS web application features using Next.js, React, and TypeScript.",
+      "Developed responsive user interfaces and reusable components using Tailwind CSS.",
+      "Implemented backend APIs and integrated MongoDB for data management.",
+      "Built authentication, authorization, and dashboard modules for business applications.",
+      "Integrated REST APIs, handled validation, debugging, and application performance improvements.",
+      "Worked in Agile teams using Git, GitHub, Postman, and code review workflows."
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+      "Mongoose",
+      "Tailwind CSS",
+      "REST APIs",
+      "Git",
+      "Postman"
+    ]
+  },
+
+  {
+    title: "Full Stack Developer",
+    type: "JSPR Software Solution",
+    duration: "Sep 2024 – Sep 2025",
+    description: [
+      "Developed and maintained web applications using the MERN stack.",
+      "Built responsive React interfaces with reusable components and state management.",
+      "Designed and integrated REST APIs for authentication and business modules.",
+      "Worked with MongoDB, Express.js, and Node.js to build backend functionality.",
+      "Collaborated in Agile development, participated in code reviews, and managed version control using Git."
+    ],
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "REST APIs",
+      "Git",
+      "Postman"
+    ]
+  }
+];
 
   return (
     <section id="experience" className="py-20">
